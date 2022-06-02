@@ -22,14 +22,14 @@ pipeline {
                        echo "terraform create is in progress"
                        ls
                        terraform init -input=false
-                       terraform apply --auto-approve -input=false
+                       terraform apply --auto-approve -input=false -lock=false
                        '''
                         
                     } else {
                        sh '''
                        echo "terraform destory is in progress"
                        terraform init -input=false
-                       terraform destroy --auto-approve -input=false
+                       terraform destroy --auto-approve -input=false -lock=false
                        '''                
                     }
                 }
